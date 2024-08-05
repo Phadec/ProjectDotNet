@@ -1,0 +1,62 @@
+.login{
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://img.freepik.com/free-vector/flat-world-emoji-day-background-with-emoticons_23-2149427424.jpg?t=st=1722840751~exp=1722844351~hmac=265c26f47fec583489e453becb6479ab77be02761a3341ead4fe9608aa3767c9&w=996");
+}
+
+.login__overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.card{
+  border: 1px solid #000;
+}
+
+.card-header{
+  background-color: #fde9ff;
+}
+
+.username__part{
+  padding: 0 20px 0 20px;
+  margin-bottom: 10px;
+}
+
+.password__part{
+  margin-bottom: 20px;
+  padding: 0 20px 0 20px;
+}
+
+.login__btn-part{
+  padding: 0 20px 0 20px;
+}
+
+.login__btn{
+  background-color: #f337ff;
+  width: 100% ;
+  border-radius: 5px;
+  color: #ffffff;
+  height: 40px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+  border: 1px solid #616161;
+  line-height: 10px;
+}
+
+.login__btn:active{
+  background-color: #f571ff;
+}
+
+.forget-and-regis{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 30px 0 30px;
+}

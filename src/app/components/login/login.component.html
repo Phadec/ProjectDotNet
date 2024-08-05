@@ -1,0 +1,29 @@
+<div class="login">
+  <div class="login__overlay"></div>
+  <div class="row d-flex justify-content-center align-items-center" style="height: 98vh;">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header">
+          <h3 style="margin-top: 5px; margin-left: 20px;">Login</h3>
+        </div>
+        <div class="card-body">
+          <div class="username__part">
+            <label style="margin-bottom: 2px; margin-left: 10px;">Username</label>
+            <input [(ngModel)]="loginModel.userName" type="text" class="form-control" placeholder="Enter your username" style="border: 1px solid #9a9a9a;">
+          </div>
+          <div class="password__part">
+            <label style="margin-bottom: 2px; margin-left: 10px;">Password</label>
+            <input [(ngModel)]="loginModel.password" type="password" class="form-control" placeholder="Enter your password" style="border: 1px solid #9a9a9a;">
+          </div>
+          <div class="login__btn-part">
+            <button class="login__btn" (click)="login()">Log in</button>
+          </div>
+          <div class="forget-and-regis">
+            <a href="/forgot password">Forgot password ?</a>
+            <a href="/register">Register</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

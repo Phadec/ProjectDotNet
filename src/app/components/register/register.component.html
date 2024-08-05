@@ -1,0 +1,46 @@
+<div class="register">
+  <div class="register__overlay"></div>
+  <div class="row d-flex justify-content-center align-items-center" style="height: 98vh;">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header">
+          <h3 style="margin-top: 10px; margin-left: 20px;">Register</h3>
+          <p></p>
+        </div>
+        <div class="card-body">
+          <div class="username__part">
+            <label style="margin-bottom: 2px; margin-left: 10px;">Username</label>
+            <input [(ngModel)]="registerModel.userName" type="text" class="form-control" placeholder="Enter your username" style="border: 1px solid #9a9a9a;">
+          </div>
+          <div class="password__part">
+            <label style="margin-bottom: 2px; margin-left: 10px;">Password</label>
+            <input [(ngModel)]="registerModel.password" type="password" class="form-control"
+                   placeholder="Enter your password" style="border: 1px solid #9a9a9a;">
+          </div>
+          <div class="full-name__part">
+            <label style="margin-bottom: 2px; margin-left: 10px;">Full Name</label>
+            <input [(ngModel)]="registerModel.fullName" type="fullname" class="form-control"
+                   placeholder="Enter your full name" style="border: 1px solid #9a9a9a;">
+          </div>
+          <div class="birth-date__part">
+            <label style="margin-bottom: 2px; margin-left: 10px;">BirthDate</label>
+            <input [(ngModel)]="registerModel.birthDate" type="birthdate" class="form-control"
+                   placeholder="Enter your Birthdate" style="border: 1px solid #9a9a9a;">
+          </div>
+          <div class="email__part">
+            <label style="margin-bottom: 2px; margin-left: 10px;">Email</label>
+            <input [(ngModel)]="registerModel.email" type="email" class="form-control"
+                   placeholder="Enter your Email" style="border: 1px solid #9a9a9a;">
+          </div>
+          <div class="avatar__part">
+            <label style="margin-bottom: 2px; margin-left: 10px;">Avatar</label>
+            <input type="file" (change)="setImage($event)" class="form-control">
+          </div>
+          <div class="register__btn-part">
+            <button class="register__btn" (click)="register()">Register</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
