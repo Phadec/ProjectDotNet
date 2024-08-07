@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 <div class="register">
   <div class="register__overlay"></div>
   <div class="row d-flex justify-content-center align-items-center" style="height: 98vh;">
@@ -5,39 +6,106 @@
       <div class="card">
         <div class="card-header">
           <h3 style="margin-top: 10px; margin-left: 20px;">Register</h3>
-          <p></p>
+          <a href="/login" class="cancel__icon"><i class="fa-solid fa-x"></i></a>
         </div>
         <div class="card-body">
           <div class="username__part">
-            <label style="margin-bottom: 2px; margin-left: 10px;">Username</label>
-            <input [(ngModel)]="registerModel.userName" type="text" class="form-control" placeholder="Enter your username" style="border: 1px solid #9a9a9a;">
+            <label class="input__title">Username</label>
+            <div class="input-container">
+              <input
+                [(ngModel)]="registerModel.userName"
+                type="text"
+                class="form-control"
+                [ngClass]="{'input-error': usernameError}"
+                placeholder="Enter your username" style="border: 1px solid #9a9a9a;">
+              <div *ngIf="usernameError" class="error-message">Please enter your username.</div>
+            </div>
           </div>
           <div class="password__part">
-            <label style="margin-bottom: 2px; margin-left: 10px;">Password</label>
-            <input [(ngModel)]="registerModel.password" type="password" class="form-control"
-                   placeholder="Enter your password" style="border: 1px solid #9a9a9a;">
+            <label class="input__title">Password</label>
+            <div class="input-container">
+              <input
+                [(ngModel)]="registerModel.password"
+                type="password"
+                class="form-control"
+                [ngClass]="{'input-error': passwordError || passwordLengthError}"
+                placeholder="Enter your password" style="border: 1px solid #9a9a9a;">
+              <div *ngIf="passwordError" class="error-message">Please enter your password.</div>
+              <div *ngIf="passwordLengthError" class="error-message">Password must be at least 8 characters.</div>
+            </div>
+          </div>
+          <div class="confirm-password__part">
+            <label class="input__title">Confirm Password</label>
+            <div class="input-container">
+              <input
+                [(ngModel)]="registerModel.confirmPassword"
+                type="password"
+                class="form-control"
+                [ngClass]="{'input-error': confirmPasswordError || passwordMismatchError}"
+                placeholder="Confirm your password" style="border: 1px solid #9a9a9a;">
+              <div *ngIf="confirmPasswordError" class="error-message">Please confirm your password.</div>
+              <div *ngIf="!confirmPasswordError && passwordMismatchError" class="error-message">Password do not match.</div>
+            </div>
           </div>
           <div class="full-name__part">
-            <label style="margin-bottom: 2px; margin-left: 10px;">Full Name</label>
-            <input [(ngModel)]="registerModel.fullName" type="fullname" class="form-control"
-                   placeholder="Enter your full name" style="border: 1px solid #9a9a9a;">
+            <div class="first-name__part">
+              <label class="input__title">First Name</label>
+              <div class="input-container">
+                <input
+                  [(ngModel)]="registerModel.firstName"
+                  type="text"
+                  class="form-control"
+                  [ngClass]="{'input-error': firstNameError}"
+                  placeholder="Enter your first name" style="border: 1px solid #9a9a9a;">
+                <div *ngIf="firstNameError" class="error-message">Please enter your first name.</div>
+              </div>
+            </div>
+            <div class="last-name__part">
+              <label class="input__title">Last Name</label>
+              <div class="input-container">
+                <input
+                  [(ngModel)]="registerModel.lastName"
+                  type="text"
+                  class="form-control"
+                  [ngClass]="{'input-error': lastNameError}"
+                  placeholder="Enter your last name" style="border: 1px solid #9a9a9a;">
+                <div *ngIf="lastNameError" class="error-message">Please enter your last name.</div>
+              </div>
+            </div>
           </div>
           <div class="birth-date__part">
-            <label style="margin-bottom: 2px; margin-left: 10px;">BirthDate</label>
-            <input [(ngModel)]="registerModel.birthDate" type="birthdate" class="form-control"
-                   placeholder="Enter your Birthdate" style="border: 1px solid #9a9a9a;">
+            <label class="input__title">Birth Date</label>
+            <div class="input-container">
+              <input
+                [(ngModel)]="registerModel.birthDate"
+                type="date"
+                class="form-control"
+                [ngClass]="{'input-error': birthDateError}"
+                placeholder="Enter your birth date" style="border: 1px solid #9a9a9a;">
+              <div *ngIf="birthDateError" class="error-message">Please enter your birth date.</div>
+            </div>
           </div>
           <div class="email__part">
-            <label style="margin-bottom: 2px; margin-left: 10px;">Email</label>
-            <input [(ngModel)]="registerModel.email" type="email" class="form-control"
-                   placeholder="Enter your Email" style="border: 1px solid #9a9a9a;">
+            <label class="input__title">Email</label>
+            <div class="input-container">
+              <input
+                [(ngModel)]="registerModel.email"
+                type="email"
+                class="form-control"
+                [ngClass]="{'input-error': emailError || emailFormatError}"
+                placeholder="Enter your email" style="border: 1px solid #9a9a9a;">
+              <div *ngIf="emailError" class="error-message">Please enter your email.</div>
+              <div *ngIf="emailFormatError" class="error-message">Invalid email format.</div>
+            </div>
           </div>
           <div class="avatar__part">
-            <label style="margin-bottom: 2px; margin-left: 10px;">Avatar</label>
-            <input type="file" (change)="setImage($event)" class="form-control">
+            <label class="input__title">Avatar</label>
+            <input type="file" (change)="setImage($event)" class="form-control"
+                   [ngClass]="{'input-error': avatarError}" style="border: 1px solid #9a9a9a;">
+            <div *ngIf="avatarError" class="error-message">Please select an avatar.</div>
           </div>
-          <div class="register__btn-part">
-            <button class="register__btn" (click)="register()">Register</button>
+          <div class="form-group register__btn-part">
+            <button type="button" class="btn btn-primary register__btn" (click)="register()">Register</button>
           </div>
         </div>
       </div>

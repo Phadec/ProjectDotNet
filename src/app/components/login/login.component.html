@@ -8,18 +8,41 @@
         </div>
         <div class="card-body">
           <div class="username__part">
-            <label style="margin-bottom: 2px; margin-left: 10px;">Username</label>
-            <input [(ngModel)]="loginModel.userName" type="text" class="form-control" placeholder="Enter your username" style="border: 1px solid #9a9a9a;">
+            <label class="input__title">Username</label>
+            <div class="input-container">
+              <input
+                [(ngModel)]="loginModel.userName"
+                type="text"
+                class="form-control"
+                [ngClass]="{'input-error': usernameError}"
+                placeholder="Enter your username" style="border: 1px solid #9a9a9a;">
+              <div *ngIf="usernameError" class="error-message">Please enter your username.</div>
+            </div>
           </div>
           <div class="password__part">
-            <label style="margin-bottom: 2px; margin-left: 10px;">Password</label>
-            <input [(ngModel)]="loginModel.password" type="password" class="form-control" placeholder="Enter your password" style="border: 1px solid #9a9a9a;">
+            <label class="input__title">Password</label>
+            <div class="input-container">
+              <input
+                [(ngModel)]="loginModel.password"
+                [type]="showPassword ? 'text' : 'password'"
+                class="form-control"
+                [ngClass]="{'input-error': passwordError}"
+                placeholder="Enter your password" style="border: 1px solid #9a9a9a;">
+              <div *ngIf="passwordError" class="error-message">Please enter your password.</div>
+            </div>
+          </div>
+          <div class="show__password">
+            <input type="checkbox" id="showPasswordCheckbox" [(ngModel)]="showPassword">
+            <label class="no__click" style="margin-left: 5px">Show Password</label>
+          </div>
+          <div *ngIf="errorMessage" class="error-text">
+            {{ errorMessage }}
           </div>
           <div class="login__btn-part">
             <button class="login__btn" (click)="login()">Log in</button>
           </div>
           <div class="forget-and-regis">
-            <a href="/forgot password">Forgot password ?</a>
+            <a href="/forgot-password">Forgot password?</a>
             <a href="/register">Register</a>
           </div>
         </div>

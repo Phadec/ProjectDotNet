@@ -9,6 +9,11 @@
   background-image: url("https://img.freepik.com/free-vector/flat-world-emoji-day-background-with-emoticons_23-2149427424.jpg?t=st=1722840751~exp=1722844351~hmac=265c26f47fec583489e453becb6479ab77be02761a3341ead4fe9608aa3767c9&w=996");
 }
 
+.register .card-body {
+  max-height: 53vh; /* Adjust this value as needed */
+  overflow-y: auto;
+}
+
 .register__overlay{
   position: absolute;
   width: 100%;
@@ -22,6 +27,19 @@
 
 .card-header{
   background-color: #fde9ff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cancel__icon{
+  font-size: 1.4rem;
+  color: #000;
+  display: block;
+  margin: 10px 10px 0 0;
+}
+
+.input__title{
+  margin-bottom: 2px; margin-left: 10px;
 }
 
 .username__part{
@@ -34,9 +52,19 @@
   margin-bottom: 10px;
 }
 
+.confirm-password__part{
+  padding: 0 20px 0 20px;
+  margin-bottom: 10px;
+}
+
 .full-name__part{
   padding: 0 20px 0 20px;
   margin-bottom: 10px;
+  display: flex;
+}
+
+.first-name__part{
+  padding-right: 15px;
 }
 
 .birth-date__part{
@@ -49,24 +77,19 @@
   margin-bottom: 10px;
 }
 
+.input-error {
+  border-color: red !important;
+}
+
+.error-message{
+  font-size: .9rem;
+  color: red;
+  margin: 2px 0 -5px 5px;
+}
+
 .avatar__part{
   padding: 0 20px 0 20px;
   margin-bottom: 20px;
-}
-
-.ava__input{
-  display: block;
-  width: 100%;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  border: 1px solid #434651;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-clip: padding-box;
-  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .register__btn-part{
@@ -84,8 +107,10 @@
   text-align: center;
   border: 1px solid #616161;
   line-height: 10px;
+  margin-bottom: 10px;
 }
 
 .register__btn:active{
   background-color: #f571ff;
 }
+

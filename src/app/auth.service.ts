@@ -16,4 +16,8 @@ export class AuthService {
     this.router.navigateByUrl("/login");
     return false;
   }
+// Giả sử bạn có một cách để lưu trạng thái đăng nhập, ví dụ như token trong localStorage
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('userToken');  // Hoặc cách kiểm tra khác bạn dùng
+  }
 }

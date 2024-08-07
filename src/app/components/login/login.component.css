@@ -24,14 +24,47 @@
   background-color: #fde9ff;
 }
 
+.input__title{
+  margin-bottom: 2px; margin-left: 10px;
+}
+
 .username__part{
   padding: 0 20px 0 20px;
   margin-bottom: 10px;
 }
 
+.input-error {
+  border-color: red !important;
+}
+
+.error-message{
+  font-size: .9rem;
+  color: red;
+  margin: 2px 0 -5px 5px;
+}
+
+.error-text{
+  font-size: .9rem;
+  margin: 0 0 3px 25px;
+  color: red;
+}
+
 .password__part{
   margin-bottom: 20px;
   padding: 0 20px 0 20px;
+}
+
+.show__password {
+  display: flex;
+  align-items: center;
+  margin: -14px 0 10px 25px;
+  font-size: .9rem;
+}
+
+.show__password label.no__click {
+  margin-left: 5px;
+  cursor: default;
+  user-select: none;
 }
 
 .login__btn-part{
